@@ -9,25 +9,55 @@ namespace P2FixAnAppDotNetCode.Models
     public class Cart : ICart
     {
         /// <summary>
+        /// Cart lines list
+        /// </summary>
+        /// <remarks>ADD (SMO)</remarks>
+        public List<CartLine> cartLines = new List<CartLine>();
+
+        /// <summary>
         /// Read-only property for dispaly only
         /// </summary>
-        public IEnumerable<CartLine> Lines => GetCartLineList();
+        /// <remarks>CHANGE (SMO)</remarks>
+        public IEnumerable<CartLine> Lines => cartLines; //UPD SMO, OLD: Lines => GetCartLineList(); 
 
         /// <summary>
         /// Return the actual cartline list
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Cart lines List</returns>
+        /// <remarks>CHANGE (SMO)</remarks>
         private List<CartLine> GetCartLineList()
         {
-            return new List<CartLine>();
+            return cartLines; //UPD SMO, OLD: ist<CartLine>(); 
         }
 
         /// <summary>
+        /// Memorize ID of the last cart item added
+        /// </summary>
+        /// <remarks>ADD (SMO)</remarks>
+        public static int cartLineId = 0;
+
+        /// <summary>
         /// Adds a product in the cart or increment its quantity in the cart if already added
-        /// </summary>//
+        /// </summary>
+        /// <params>
+        /// <paramref name="product"> object (class Product) added to the cart</paramref>/>
+        /// <paramref name="quantity"> quantity of the product added to the cart</paramref>/>
+        /// </params>
+        /// <remarks>TODO T01 (SMO)</remarks>
         public void AddItem(Product product, int quantity)
         {
             // TODO implement the method
+            // SMO: If product does not exist in Cart, add it, otherwise update cart product quantity
+            if (FindProductInCartLines(product.Id) != null)
+            {
+                CartLine foundLine = cartLines.Find(line => line.Product.Id == product.Id); int newQuantity = foundLine.Quantity + quantity;
+                foundLine.Quantity = newQuantity;
+            }
+            else
+            {
+                CartLine newLine = new CartLine { OrderLineId = cartLineId++, Product = product, Quantity = quantity };
+                cartLines.Add(newLine);
+            }
         }
 
         /// <summary>
@@ -60,6 +90,7 @@ namespace P2FixAnAppDotNetCode.Models
         public Product FindProductInCartLines(int productId)
         {
             // TODO implement the method
+           
             return null;
         }
 
