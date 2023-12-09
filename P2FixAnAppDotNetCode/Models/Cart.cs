@@ -88,10 +88,29 @@ namespace P2FixAnAppDotNetCode.Models
         /// <summary>
         /// Get average value of a cart
         /// </summary>
+        /// <returns>Average value (double var type) of products in the cart</returns>
+        /// <remarks>TODO T03 (SMO)</remarks>
         public double GetAverageValue()
         {
             // TODO implement the method
-            return 0.0;
+            int numberOfProducts = 0;
+
+            // SMO: With the cart list returned by GetCartLineList,
+            // calculate the number of products in the cart.
+            foreach (CartLine line in GetCartLineList())
+            {
+                numberOfProducts = numberOfProducts + line.Quantity;
+            }
+            if (numberOfProducts > 0)
+            {
+                // SMO: Get the cart total value and divides it by the number of products in the cart.
+                double averageValue = (GetTotalValue() / numberOfProducts);
+                return averageValue;
+            }
+            else
+            {
+                return 0.0;
+            }
         }
 
         /// <summary>
