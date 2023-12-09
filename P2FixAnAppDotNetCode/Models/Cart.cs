@@ -27,7 +27,8 @@ namespace P2FixAnAppDotNetCode.Models
         /// <remarks>CHANGE (SMO)</remarks>
         private List<CartLine> GetCartLineList()
         {
-            return cartLines; //UPD SMO, OLD: ist<CartLine>(); 
+            // UPD SMO, OLD: ist<CartLine>();. 
+            return cartLines; 
         }
 
         /// <summary>
@@ -47,11 +48,11 @@ namespace P2FixAnAppDotNetCode.Models
         public void AddItem(Product product, int quantity)
         {
             // TODO implement the method
-            // SMO: If product does not exist in Cart, add it, otherwise update cart product quantity
+            // SMO: If product does not exist in Cart, add it, otherwise update cart product quantity.
             if (FindProductInCartLines(product.Id) != null)
             {
-                CartLine foundLine = cartLines.Find(line => line.Product.Id == product.Id); int newQuantity = foundLine.Quantity + quantity;
-                foundLine.Quantity = newQuantity;
+                CartLine foundCartLine = cartLines.Find(line => line.Product.Id == product.Id); int newQuantity = foundLine.Quantity + quantity;
+                foundCartLine.Quantity = newQuantity;
             }
             else
             {
@@ -69,10 +70,19 @@ namespace P2FixAnAppDotNetCode.Models
         /// <summary>
         /// Get total value of a cart
         /// </summary>
+        /// <returns>Returns a double type variable corresponding 
+        /// to the cart total products values</returns>
+        /// <remarks>TODO T02 (SMO)</remarks>
         public double GetTotalValue()
         {
             // TODO implement the method
-            return 0.0;
+            double result = 0.0;
+            foreach (CartLine line in GetCartLineList())
+            {
+                result = result + (line.Quantity * line.Product.Price);
+            }
+
+            return result;
         }
 
         /// <summary>
@@ -87,11 +97,20 @@ namespace P2FixAnAppDotNetCode.Models
         /// <summary>
         /// Looks after a given product in the cart and returns if it finds it
         /// </summary>
+        /// <param name="productId">Product ID to find</param>
+        /// <remarks>TODO T04 (SMO)</remarks>
         public Product FindProductInCartLines(int productId)
         {
             // TODO implement the method
-           
-            return null;
+            CartLine foundLine = cartLines.Find(line => line.Product.Id == productId);
+            if (foundLine != null) 
+            { 
+                return foundLine.Product; 
+            }
+            else
+            {
+                return null;
+            }
         }
 
         /// <summary>
