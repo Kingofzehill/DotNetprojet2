@@ -51,7 +51,8 @@ namespace P2FixAnAppDotNetCode.Models
             // SMO: If product does not exist in Cart, add it, otherwise update cart product quantity.
             if (FindProductInCartLines(product.Id) != null)
             {
-                CartLine foundCartLine = cartLines.Find(line => line.Product.Id == product.Id); int newQuantity = foundLine.Quantity + quantity;
+                CartLine foundCartLine = cartLines.Find(line => line.Product.Id == product.Id); 
+                int newQuantity = foundCartLine.Quantity + quantity;
                 foundCartLine.Quantity = newQuantity;
             }
             else
