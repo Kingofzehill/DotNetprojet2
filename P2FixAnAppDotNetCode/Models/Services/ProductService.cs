@@ -45,12 +45,18 @@ namespace P2FixAnAppDotNetCode.Models.Services
         }
 
         /// <summary>
-        /// Update the quantities left for each product in the inventory depending of ordered the quantities
+        /// Update the quantities left for each product in the inventory depending of ordered quantities
         /// </summary>
+        /// <param name="cart">Cart (Classe Cart)</param>
+        /// <remarks>DONE T08 (SMO)</remarks>
         public void UpdateProductQuantities(Cart cart)
         {
             // TODO implement the method
             // update product inventory by using _productRepository.UpdateProductStocks() method.
+            foreach (CartLine lineCart in cart.cartLines)
+            {
+                _productRepository.UpdateProductStocks(lineCart.Product.Id, lineCart.Quantity);
+            }
         }
     }
 }

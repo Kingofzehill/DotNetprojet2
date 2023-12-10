@@ -41,6 +41,8 @@ namespace P2FixAnAppDotNetCode.Models.Repositories
         /// <summary>
         /// Update the stock of a product in the inventory by its id
         /// </summary>
+        /// <param name="productId">Product identifier</param>
+        /// <param name="quantityToRemove">Quantity to remove from the product stock</param>
         public void UpdateProductStocks(int productId, int quantityToRemove)
         {
             Product product = _products.First(p => p.Id == productId);
