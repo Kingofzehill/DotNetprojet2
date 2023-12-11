@@ -26,9 +26,32 @@ namespace P2FixAnAppDotNetCode.Models.Services
         /// <remarks>TODO T05 (SMO) ==> implement cultures (languages) support.</remarks>
         public string SetCulture(string language)
         {
-            string culture = "";
             // TODO complete the code. 
             // Default language is "en", french is "fr" and spanish is "es".
+
+            // Defautl culture.
+            string culture = "en-GB";
+            switch (language)
+            {
+                // English culture support.
+                case "Anglais":
+                case "English":
+                case "Inglès":
+                    culture = "en-GB";
+                    break;
+                // French culture support.
+                case "Français":
+                case "French":
+                case "Francés":
+                    culture = "fr-FR";
+                    break;
+                // Spanish culture support.
+                case "Espagnol":
+                case "Spanish":
+                case "Español":
+                    culture = "es-ES";
+                    break;
+            }
             
             return culture;
         }
