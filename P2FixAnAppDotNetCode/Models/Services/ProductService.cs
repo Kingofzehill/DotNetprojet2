@@ -11,22 +11,40 @@ namespace P2FixAnAppDotNetCode.Models.Services
     {
         private readonly IProductRepository _productRepository;
         private readonly IOrderRepository _orderRepository;
-
+        
         public ProductService(IProductRepository productRepository, IOrderRepository orderRepository)
         {
             _productRepository = productRepository;
-            _orderRepository = orderRepository;
+            _orderRepository = orderRepository;            
         }
 
         /// <summary>
         /// Get all product from the inventory
         /// </summary>
+        /// <returns>List<T> of products</returns>
+        /// <remarks>TODO T06 (SMO) ==> change the return type from array to List<T>
+        /// of products.</remarks>
+        public List<Product> GetAllProducts()
+        {
+            // TODO change the return type from array to List<T> and propagate the change
+            // thoughout the application
+
+            List<Product> listOfInventoryProducts = ProductRepository.ProductsRepositoryList
+                .Where(p => p.Stock > 0)
+                .OrderBy(p => p.Name)
+                .ToList();
+            return listOfInventoryProducts;
+        }
+        // SMO: TODO T06, code before update ==> return an array of products.
+        /*
         public Product[] GetAllProducts()
         {
             // TODO change the return type from array to List<T> and propagate the change
             // thoughout the application
+
             return _productRepository.GetAllProducts();
         }
+        */
 
         /// <summary>
         /// Get a product form the inventory by its id

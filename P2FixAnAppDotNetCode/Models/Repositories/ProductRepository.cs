@@ -9,6 +9,11 @@ namespace P2FixAnAppDotNetCode.Models.Repositories
     public class ProductRepository : IProductRepository
     {
         private static List<Product> _products;
+        // SMO: code TODO T06, productsRepository ==> a read only static property of field _products
+        /// <summary>
+        ///  a read only static property of field _products
+        /// </summary>
+        public static List<Product> ProductsRepositoryList => _products;
 
         public ProductRepository()
         {
