@@ -18,10 +18,10 @@ namespace P2FixAnAppDotNetCode.Controllers
 
         public IActionResult Index()
         {
-            // SMO: TODO T06 
+            // SMO: TODO T06. 
             List<Product> products = _productService.GetAllProducts();
 
-            // SMO: TODO T06 ==> code before update
+            // SMO: TODO T06 ==> code before update.
             // Product[] products = _productService.GetAllProducts();
 
             return View(products);

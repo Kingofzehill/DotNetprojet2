@@ -4,15 +4,15 @@ using System.Linq;
 namespace P2FixAnAppDotNetCode.Models.Repositories
 {
     /// <summary>
-    /// The class that manages product data
+    /// The class that manages product data.
     /// </summary>
     public class ProductRepository : IProductRepository
     {
         private static List<Product> _products;
-        // SMO: code TODO T06, productsRepository ==> a read only static property of field _products
         /// <summary>
-        ///  a read only static property of field _products
+        ///  a read only static property of field _products.
         /// </summary>
+        /// <remarks>TODO T06 (SMO) ==> read only static property of field _products.</remarks>
         public static List<Product> ProductsRepositoryList => _products;
 
         public ProductRepository()
@@ -22,7 +22,7 @@ namespace P2FixAnAppDotNetCode.Models.Repositories
         }
 
         /// <summary>
-        /// Generate the default list of products
+        /// Generate the default list of products.
         /// </summary>
         private void GenerateProductData()
         {
@@ -35,7 +35,7 @@ namespace P2FixAnAppDotNetCode.Models.Repositories
         }
 
         /// <summary>
-        /// Get all products from the inventory
+        /// Get all products from the inventory.
         /// </summary>
         public Product[] GetAllProducts()
         {
@@ -44,10 +44,10 @@ namespace P2FixAnAppDotNetCode.Models.Repositories
         }
 
         /// <summary>
-        /// Update the stock of a product in the inventory by its id
+        /// Update the stock of a product in the inventory by its id.
         /// </summary>
-        /// <param name="productId">Product identifier</param>
-        /// <param name="quantityToRemove">Quantity to remove from the product stock</param>
+        /// <param name="productId">Product identifier.</param>
+        /// <param name="quantityToRemove">Quantity to remove from the product stock.</param>
         public void UpdateProductStocks(int productId, int quantityToRemove)
         {
             Product product = _products.First(p => p.Id == productId);

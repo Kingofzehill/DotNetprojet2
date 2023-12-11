@@ -4,7 +4,7 @@ using P2FixAnAppDotNetCode.Models.Repositories;
 namespace P2FixAnAppDotNetCode.Models.Services
 {
     /// <summary>
-    /// Provides services to manage an order
+    /// Provides services to manage an order.
     /// </summary>
     public class OrderService : IOrderService
     {
@@ -20,7 +20,7 @@ namespace P2FixAnAppDotNetCode.Models.Services
         }
 
         /// <summary>
-        /// Saves an order
+        /// Saves an order.
         /// </summary>
         public void SaveOrder(Order order)
         {
@@ -30,7 +30,7 @@ namespace P2FixAnAppDotNetCode.Models.Services
         }
 
         /// <summary>
-        /// Update the product quantities inventory and clears the cart
+        /// Update the product quantities inventory and clears the cart.
         /// </summary>
         private void UpdateInventory()
         {

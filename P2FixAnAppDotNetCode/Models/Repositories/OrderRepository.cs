@@ -3,7 +3,7 @@
 namespace P2FixAnAppDotNetCode.Models.Repositories
 {
     /// <summary>
-    /// The class that manages order data
+    /// The class that manages order data.
     /// </summary>
     public class OrderRepository : IOrderRepository
     {
@@ -15,7 +15,7 @@ namespace P2FixAnAppDotNetCode.Models.Repositories
         }
 
         /// <summary>
-        /// Saves an order
+        /// Saves an order.
         /// </summary>
         public void Save(Order order)
         {
