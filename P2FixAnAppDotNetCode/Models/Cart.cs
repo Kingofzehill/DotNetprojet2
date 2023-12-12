@@ -18,7 +18,7 @@ namespace P2FixAnAppDotNetCode.Models
         /// Read-only property for dispaly only.
         /// </summary>
         /// <remarks>TODO 01 (SMO).</remarks>
-        public IEnumerable<CartLine> Lines => cartLines; //UPD SMO, OLD: Lines => GetCartLineList(); 
+        public IEnumerable<CartLine> Lines => cartLines; 
 
         /// <summary>
         /// Return the actual cartline list.
