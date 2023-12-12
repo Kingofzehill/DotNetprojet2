@@ -124,7 +124,7 @@
     <value>Ville</value>
   </data>
   <data name="CompleteOrder" xml:space="preserve">
-    <value>Terminer la commande</value>
+    <value>Commander</value>
   </data>
   <data name="Country" xml:space="preserve">
     <value>Pays</value>
