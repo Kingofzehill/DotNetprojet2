@@ -29,23 +29,23 @@ namespace P2FixAnAppDotNetCode.Models.Services
             // TODO complete the code. 
             // Default language is "en", french is "fr" and spanish is "es".
 
-            // Defautl culture.
+            // SMO: Defautl culture.
             string culture = "en-GB";
             switch (language)
             {
-                // English culture support.
+                // SMO: English culture support.
                 case "Anglais":
                 case "English":
                 case "Inglès":
                     culture = "en-GB";
                     break;
-                // French culture support.
+                // SMO: French culture support.
                 case "Français":
                 case "French":
                 case "Francés":
                     culture = "fr-FR";
                     break;
-                // Spanish culture support.
+                // SMO: Spanish culture support.
                 case "Espagnol":
                 case "Spanish":
                 case "Español":

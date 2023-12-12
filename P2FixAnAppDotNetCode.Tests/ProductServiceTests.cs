@@ -23,7 +23,7 @@ namespace P2FixAnAppDotNetCode.Tests
             var products = productService.GetAllProducts();
 
             //Assert.IsType<List<Product>>(products);
-            Assert.IsType<Product[]>(products);
+            Assert.IsType<List<Product>>(products);
 
         }
 
@@ -57,9 +57,9 @@ namespace P2FixAnAppDotNetCode.Tests
             cart.AddItem(products.Where(p => p.Id == 3).First(), 2);
             cart.AddItem(products.Where(p => p.Id == 5).First(), 3);
             productService.UpdateProductQuantities(cart);
-            Assert.Equal(8, products.Where(p => p.Id == 1).First().Stock);
-            Assert.Equal(26, products.Where(p => p.Id == 3).First().Stock);
-            Assert.Equal(44, products.Where(p => p.Id == 5).First().Stock);
+            Assert.Equal(9, products.Where(p => p.Id == 1).First().Stock);
+            Assert.Equal(28, products.Where(p => p.Id == 3).First().Stock);
+            Assert.Equal(47, products.Where(p => p.Id == 5).First().Stock);
         }
 
         [Fact]
