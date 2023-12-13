@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using StackExchange.Redis;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace P2FixAnAppDotNetCode.Models.Repositories
@@ -17,8 +18,12 @@ namespace P2FixAnAppDotNetCode.Models.Repositories
 
         public ProductRepository()
         {
-            _products = new List<Product>();
-            GenerateProductData();
+            // SMO Bug 05 : try not updating product list and reload it with hard data
+            if (_products == null)
+            {
+                _products = new List<Product>();
+                GenerateProductData();
+            }
         }
 
         /// <summary>

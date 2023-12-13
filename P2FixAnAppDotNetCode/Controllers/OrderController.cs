@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
 using P2FixAnAppDotNetCode.Models;
@@ -31,6 +32,8 @@ namespace P2FixAnAppDotNetCode.Controllers
             if (ModelState.IsValid)
             {
                 order.Lines = (_cart as Cart)?.Lines.ToArray();
+                // SMO BUG B03 : add confirmation message for ordering
+                // Console.WriteLine("vous passez en commande");
                 _orderService.SaveOrder(order);
                 return RedirectToAction(nameof(Completed));
             }
