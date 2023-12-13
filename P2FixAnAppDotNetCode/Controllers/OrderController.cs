@@ -20,7 +20,7 @@ namespace P2FixAnAppDotNetCode.Controllers
         }
 
         public ViewResult Index() => View(new Order());
-
+        
         [HttpPost]
         public IActionResult Index(Order order)
         {

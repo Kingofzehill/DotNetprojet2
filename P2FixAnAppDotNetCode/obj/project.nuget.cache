@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dh1FeXHVIGnBjhtTu2bijdAy4tAnvNhcDT8HEh7/DT0sswRUQmcaZmM/Y7KFWb2+Ch11j6PHfjvvK4OaED7Tdw==",
+  "dgSpecHash": "cOR6ktcR+wwozR5HdiY3T/OiTbq4B8Vhr61CYJ3CEh+fpi7Z4HAeQVR0O2kgtMJ0IbW3zHgDQVBeOHZseRVMqg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\smour\\Source\\Repos\\DotNetprojet2\\P2FixAnAppDotNetCode\\P2FixAnAppDotNetCode.csproj",
+  "projectFilePath": "C:\\Users\\smour\\source\\repos\\DotNetprojet2\\P2FixAnAppDotNetCode\\P2FixAnAppDotNetCode.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\smour\\.nuget\\packages\\libuv\\1.10.0\\libuv.1.10.0.nupkg.sha512",
     "C:\\Users\\smour\\.nuget\\packages\\microsoft.applicationinsights\\2.4.0\\microsoft.applicationinsights.2.4.0.nupkg.sha512",

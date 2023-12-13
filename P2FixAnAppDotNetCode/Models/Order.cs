@@ -1,7 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+// SMO permet de géer les annotations de données,
+// voir instruction [Required(ErrorMessage = "ErrorMissingName")]
+// pour les champs du formulaire de Index.cshtml à contrôler
 using System.ComponentModel.DataAnnotations;
+using Microsoft.ApplicationInsights.AspNetCore;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.Extensions.Localization;
+using P2FixAnAppDotNetCode.Controllers;
 
 namespace P2FixAnAppDotNetCode.Models
 {
@@ -21,6 +27,8 @@ namespace P2FixAnAppDotNetCode.Models
         [Required(ErrorMessage = "ErrorMissingCity")]
         public string City { get; set; }
 
+        // SMO Bug B06 : upd zip code as mandatory
+        [Required(ErrorMessage = "ErrorMissingZip")]
         public string Zip { get; set; }
 
         [Required(ErrorMessage = "ErrorMissingCountry")]
