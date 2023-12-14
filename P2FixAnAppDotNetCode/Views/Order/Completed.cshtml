@@ -1,2 +1,26 @@
-﻿<h2>@Localizer["Thanks"]</h2>
+﻿
+<h2>@Localizer["Thanks"]
+    @* // SMO Bug B11 : RouteLink for redirection to the home page. *@
+    <p><a href="/">@Localizer["Homepage"]</a></p>
+</h2>
 <p>@Localizer["DemoEnding"]</p>
+@* Bug 11 code options:
+    Solution 1 : use HTML <a> tag and use a @Localizer["Homepage"] 
+    for the link title
+        <a href="/">@Localizer["Homepage"]</a>
+
+    Solution 1 not as clean as using a @Html.RouteLink but was unable 
+    to use a @Localizer["Homepage"] reference for the title of the Link 
+    (page is not renderred without any error message)
+    ==> @Html.RouteLink(@Localizer["Homepage"], "default", new { Controller = "" , action = "", id = "" })
+
+    Solution 2 : Use @Html.RouteLink and reset Controller, action, 
+    and id settings of the "default" mapRoute set in startup.cs
+        @Localizer["Homepage"] @Html.RouteLink("OpenClassroom shop", "default", new { Controller = "" , action = "", id = "" })
+
+    solution 3 : redirecting user to Homepage by setting
+    a new MapRoute "homepage".
+        @Html.RouteLink("Homepage by using a MapRoute without any parameters", "homepage")
+*@
+
+

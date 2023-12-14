@@ -74,6 +74,11 @@ namespace P2FixAnAppDotNetCode
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Product}/{action=Index}/{id?}");
+                // SMO BUG B11 set an "homepage" MapRoute with no arguments ==>
+                // Not clean solution. We prefer to reset arguments of "default" route.
+                /*routes.MapRoute(
+                    name: "homepage",
+                    template: "");*/
             });
         }
     }

@@ -118,9 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="DemoEnding" xml:space="preserve">
-    <value>Nous nous occupons de votre commande. La démo est terminée, cliquez sur le logo pour recommencer.</value>
+    <value>La démo est terminée.</value>
+  </data>
+  <data name="Homepage" xml:space="preserve">
+    <value>Veuillez cliquer pour être redirigé vers la page d'accueil de OpenClassrooms shop.</value>
   </data>
   <data name="Thanks" xml:space="preserve">
-    <value>Merci!</value>
+    <value>Merci ! Nous nous occupons de votre commande.</value>
   </data>
 </root>
