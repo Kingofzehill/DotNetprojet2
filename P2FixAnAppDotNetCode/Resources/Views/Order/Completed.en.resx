@@ -121,7 +121,7 @@
     <value>The demo is over.</value>
   </data>
   <data name="Homepage" xml:space="preserve">
-    <value>Please click to be redirected to the OpenClassrooms shop home page: </value>
+    <value>Please click to be redirected to the OpenClassrooms shop home page. </value>
   </data>
   <data name="Thanks" xml:space="preserve">
     <value>Thank you! We are processing your order.</value>
