@@ -31,5 +31,61 @@
     </div>
     <div class="text-center">
         <input class="btn btn-primary" type="submit" value="@Localizer["CompleteOrder"]" />
-    </div>
+    </div> 
+    @* SMO BUG03 : add confirmation message for ordering.*@
+    @{
+        if (Model.OrderModelState == true)
+        {
+            <text>Order.ModelState.IsValid = True</text>
+            @* 
+            @Html.ActionLink(
+                "voulez vous confirmer la commande ?",
+                "ConfirmOrder",
+                "OrderController",
+                new { confirm = true, other_parameter = "some_more_parameter" },
+                new { onclick = "return confirm('Do you really want to delete this product?')" })
+            *@
+            @* 
+            
+            
+            Sample ActionLink
+                @Html.ActionLink(
+                "Delete",
+                "DeleteAction",
+                "Product",
+                new { confirm = true, other_parameter = "some_more_parameter" },
+                new { onclick = "return confirm('Do you really want to delete this product?')" })
+            *@
+        }
+        else
+        {
+            <text>Order.ModelState.IsValid = false</text>
+        }
+    }
 </form>
+
+@* SMO BUG03 : add confirmation message for ordering.
+
+&& Model.ConfirmedOrder
+@{
+    if(IsPost) {
+        var result = "Coordonées valides, commande à confirmer";
+    }
+}
+<p>@result</p>
+*@
+@{
+    var result = "";
+
+    /*if (IsPost == true)HttpContext.IsDebuggingEnabled
+        {
+        result = "Coordonées valides, commande à confirmer";
+    }
+        else
+        {
+        result = "Coordonées invalides";
+    }*/
+
+}
+
+

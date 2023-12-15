@@ -33,7 +33,8 @@ namespace P2FixAnAppDotNetCode.Controllers
             {
                 order.Lines = (_cart as Cart)?.Lines.ToArray();
                 // SMO BUG B03 : add confirmation message for ordering
-                // Console.WriteLine("vous passez en commande");
+                order.OrderModelState = true;
+
                 _orderService.SaveOrder(order);
                 return RedirectToAction(nameof(Completed));
             }
