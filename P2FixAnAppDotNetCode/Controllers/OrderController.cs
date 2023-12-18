@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
@@ -21,7 +22,7 @@ namespace P2FixAnAppDotNetCode.Controllers
         }
 
         public ViewResult Index() => View(new Order());
-        
+
         [HttpPost]
         public IActionResult Index(Order order)
         {
@@ -31,10 +32,8 @@ namespace P2FixAnAppDotNetCode.Controllers
             }
             if (ModelState.IsValid)
             {
+                // SMO : add cart lines to the order.
                 order.Lines = (_cart as Cart)?.Lines.ToArray();
-                // SMO BUG B03 : add confirmation message for ordering
-                order.OrderModelState = true;
-
                 _orderService.SaveOrder(order);
                 return RedirectToAction(nameof(Completed));
             }

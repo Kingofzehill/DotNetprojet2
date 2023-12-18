@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\smour\\source\\repos\\DotNetprojet2\\P2FixAnAppDotNetCode\\P2FixAnAppDotNetCode.csproj": {}
+    "C:\\Users\\smour\\Source\\Repos\\DotNetprojet2\\P2FixAnAppDotNetCode\\P2FixAnAppDotNetCode.csproj": {}
   },
   "projects": {
-    "C:\\Users\\smour\\source\\repos\\DotNetprojet2\\P2FixAnAppDotNetCode\\P2FixAnAppDotNetCode.csproj": {
+    "C:\\Users\\smour\\Source\\Repos\\DotNetprojet2\\P2FixAnAppDotNetCode\\P2FixAnAppDotNetCode.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\smour\\source\\repos\\DotNetprojet2\\P2FixAnAppDotNetCode\\P2FixAnAppDotNetCode.csproj",
+        "projectUniqueName": "C:\\Users\\smour\\Source\\Repos\\DotNetprojet2\\P2FixAnAppDotNetCode\\P2FixAnAppDotNetCode.csproj",
         "projectName": "P2FixAnAppDotNetCode",
-        "projectPath": "C:\\Users\\smour\\source\\repos\\DotNetprojet2\\P2FixAnAppDotNetCode\\P2FixAnAppDotNetCode.csproj",
+        "projectPath": "C:\\Users\\smour\\Source\\Repos\\DotNetprojet2\\P2FixAnAppDotNetCode\\P2FixAnAppDotNetCode.csproj",
         "packagesPath": "C:\\Users\\smour\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\smour\\source\\repos\\DotNetprojet2\\P2FixAnAppDotNetCode\\obj\\",
+        "outputPath": "C:\\Users\\smour\\Source\\Repos\\DotNetprojet2\\P2FixAnAppDotNetCode\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

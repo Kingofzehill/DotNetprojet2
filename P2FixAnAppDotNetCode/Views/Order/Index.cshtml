@@ -2,90 +2,58 @@
 
 <h2>@Localizer["OrderTitle"]</h2>
 
-<div asp-validation-summary="All" class="text-danger"></div>
-<form asp-action="Index" method="post">
-    <h3>@Localizer["ShipTo"]</h3>
-    <div class="form-group">
-        @* // SMO Bug B06 : add validation message support for name. *@
-        <label>@Localizer["Name"]*:</label><input asp-for="Name" class="form-control" />@Html.ValidationMessageFor(model => model.Name)
-    </div>
-    <h3>@Localizer["Adress"]</h3>
-    <div class="form-group">
-        @* // SMO Bug B06 : add validation message support for adress. *@
-        <label>@Localizer["Location"]*:</label><input asp-for="Address" class="form-control" />@Html.ValidationMessageFor(model => model.Address)
-    </div>
-    <div class="row">
-        <div class="form-group col-4">
-            @* // SMO Bug B06 : add validation message support for city. *@
-            <label>@Localizer["City"]*:</label><input asp-for="City" class="form-control" />@Html.ValidationMessageFor(model => model.City)
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <form asp-action="Index" method="post">
+        <h3>@Localizer["ShipTo"]</h3>
+        <div class="form-group">
+            @* // SMO Bug B06 : add validation message support for name. *@
+            <label>@Localizer["Name"]*:</label><input asp-for="Name" class="form-control" />@Html.ValidationMessageFor(model => model.Name)
         </div>
-        <div class="form-group col-4">
-            @* // SMO Bug B06 : upd zip code as mandatory. *@
-            @* // SMO Bug B06 : add validation message support for zip. *@
-            <label>@Localizer["Zip"]*:</label><input asp-for="Zip" class="form-control" />@Html.ValidationMessageFor(model => model.Zip)
+        <h3>@Localizer["Adress"]</h3>
+        <div class="form-group">
+            @* // SMO Bug B06 : add validation message support for adress. *@
+            <label>@Localizer["Location"]*:</label><input asp-for="Address" class="form-control" />@Html.ValidationMessageFor(model => model.Address)
         </div>
-        <div class="form-group col-4">
-            @* // SMO Bug B06 : add validation message support for country. *@
-            <label>@Localizer["Country"]*:</label><input asp-for="Country" class="form-control" />@Html.ValidationMessageFor(model => model.Country)
+        <div class="row">
+            <div class="form-group col-4">
+                @* // SMO Bug B06 : add validation message support for city. *@
+                <label>@Localizer["City"]*:</label><input asp-for="City" class="form-control" />@Html.ValidationMessageFor(model => model.City)
+            </div>
+            <div class="form-group col-4">
+                @* // SMO Bug B06 : upd zip code as mandatory. *@
+                @* // SMO Bug B06 : add validation message support for zip. *@
+                <label>@Localizer["Zip"]*:</label><input asp-for="Zip" class="form-control" />@Html.ValidationMessageFor(model => model.Zip)
+            </div>
+            <div class="form-group col-4">
+                @* // SMO Bug B06 : add validation message support for country. *@
+                <label>@Localizer["Country"]*:</label><input asp-for="Country" class="form-control" />@Html.ValidationMessageFor(model => model.Country)
+            </div>
         </div>
-    </div>
-    <div class="text-center">
-        <input class="btn btn-primary" type="submit" value="@Localizer["CompleteOrder"]" />
-    </div> 
-    @* SMO BUG03 : add confirmation message for ordering.*@
-    @{
-        if (Model.OrderModelState == true)
-        {
-            <text>Order.ModelState.IsValid = True</text>
+        <div class="text-center">
             @* 
-            @Html.ActionLink(
-                "voulez vous confirmer la commande ?",
-                "ConfirmOrder",
-                "OrderController",
-                new { confirm = true, other_parameter = "some_more_parameter" },
-                new { onclick = "return confirm('Do you really want to delete this product?')" })
+            // SMO Bug B03 : it appears IsValid always True even when there are missing fields.
+            // You can force it to False with :
+            // ==> ViewData.ModelState.AddModelError(string.Empty, "Please fill required fields *");
+            // But will never go back True, even if further fields are correctly filed.
+            // 
+            // Code tests saved in comment and keep only the confirmation message box.
             *@
-            @* 
-            
-            
-            Sample ActionLink
-                @Html.ActionLink(
-                "Delete",
-                "DeleteAction",
-                "Product",
-                new { confirm = true, other_parameter = "some_more_parameter" },
-                new { onclick = "return confirm('Do you really want to delete this product?')" })
+            <input class="btn btn-primary" type="submit" value="@Localizer["CompleteOrder"]" onclick="return confirm('Please confirm the order?')" />
+            @*
+            @if (ViewData.ModelState.IsValid == true)
+            {
+                <input class= "btn btn-primary" type="submit" value="@Localizer["CompleteOrder"]" onclick="return confirm('Please confirm the order?')" />
+                // SMO Bug B03 : unable to use @Localizer["ConfirmOrder"] at that place ==> probably due to some converting in string type issues.
+                <input class="btn btn-primary" type="submit" value="@Localizer["CompleteOrder"]" onclick="return confirm(''@Localizer["ConfirmOrder"]'')" /> 
+                
+            }
+            else
+            {
+                <input class="btn btn-primary" type="submit" value="@Localizer["CompleteOrder"]" />
+            }
             *@
-        }
-        else
-        {
-            <text>Order.ModelState.IsValid = false</text>
-        }
-    }
-</form>
+        </div> 
+    </form>
 
-@* SMO BUG03 : add confirmation message for ordering.
-
-&& Model.ConfirmedOrder
-@{
-    if(IsPost) {
-        var result = "Coordonées valides, commande à confirmer";
-    }
-}
-<p>@result</p>
-*@
-@{
-    var result = "";
-
-    /*if (IsPost == true)HttpContext.IsDebuggingEnabled
-        {
-        result = "Coordonées valides, commande à confirmer";
-    }
-        else
-        {
-        result = "Coordonées invalides";
-    }*/
-
-}
 
 

@@ -15,10 +15,7 @@ namespace P2FixAnAppDotNetCode.Models
     {
         [BindNever]
         public int OrderId { get; set; }
-        // SMO BUG03 : add confirmation message for ordering
-        // Add a bool type field (true if ModelState.isValid).
-        public bool OrderModelState = false;
-        [BindNever]    
+        [BindNever]
 
         public ICollection<CartLine> Lines { get; set; }
 
