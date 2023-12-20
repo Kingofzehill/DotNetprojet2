@@ -43,8 +43,9 @@
             @if (ViewData.ModelState.IsValid == true)
             {
                 <input class= "btn btn-primary" type="submit" value="@Localizer["CompleteOrder"]" onclick="return confirm('Please confirm the order?')" />
-                // SMO Bug B03 : unable to use @Localizer["ConfirmOrder"] at that place ==> probably due to some converting in string type issues.
-                <input class="btn btn-primary" type="submit" value="@Localizer["CompleteOrder"]" onclick="return confirm(''@Localizer["ConfirmOrder"]'')" /> 
+                // SMO Bug B03 : unable to use @Localizer["ConfirmOrder"] in onclick attribute 
+                // ==> probably due to some converting in string type issues connected to Razor syntax
+                <input class="btn btn-primary" type="submit" value="@Localizer["CompleteOrder"]" onclick="return confirm('@Localizer["ConfirmOrder"]')" /> 
                 
             }
             else
