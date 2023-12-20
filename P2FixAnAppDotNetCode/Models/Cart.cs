@@ -123,7 +123,8 @@ namespace P2FixAnAppDotNetCode.Models
         public Product FindProductInCartLines(int productId)
         {
             // TODO implement the method.
-            CartLine foundLine = cartLines.Find(line => line.Product.Id == productId);
+            CartLine foundLine = cartLines.Find(
+                line => line.Product.Id == productId);
             if (foundLine != null) 
             { 
                 return foundLine.Product; 

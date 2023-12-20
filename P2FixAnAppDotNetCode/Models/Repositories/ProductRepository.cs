@@ -18,7 +18,9 @@ namespace P2FixAnAppDotNetCode.Models.Repositories
 
         public ProductRepository()
         {
-            // SMO Bug 05 : try not updating product list and reload it with hard data
+            // SMO Bug 05 : Doesn't update product list if already loaded
+            // allows to see products quantity decreasing for each order completed
+            // during the user session.
             if (_products == null)
             {
                 _products = new List<Product>();

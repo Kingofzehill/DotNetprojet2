@@ -15,7 +15,8 @@ namespace P2FixAnAppDotNetCode.Models.Repositories
 
         public OrderRepository()
         {
-            // SMO Bug 05 : try not reseting orders list.
+            // SMO Bug 05 : Don't reset orders list if already loaded
+            // Allow to keep the list of orders confirmed during the user session
             if (_orders == null)
             {
                 _orders = new List<Order>();

@@ -75,7 +75,9 @@ namespace P2FixAnAppDotNetCode.Models.Services
             // SMO: For each cart line of the cart update the stock inventory of th product.
             foreach (CartLine lineCart in cart.cartLines)
             {
-                _productRepository.UpdateProductStocks(lineCart.Product.Id, lineCart.Quantity);
+                _productRepository.UpdateProductStocks(
+                    lineCart.Product.Id, 
+                    lineCart.Quantity);
             }
         }
     }
