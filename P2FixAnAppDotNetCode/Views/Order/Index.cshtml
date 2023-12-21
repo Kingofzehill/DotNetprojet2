@@ -38,8 +38,8 @@
             // 
             // Code tests saved in comment and keep only the confirmation message box.
             *@
-        @*<input class="btn btn-primary" type="submit" value="@Localizer["CompleteOrder"]" onclick="return confirm('Please confirm the order?')" />*@
-            <input class="btn btn-primary" type="submit" value="@Localizer["CompleteOrder"]" onclick="return confirm('""@Localizer["ConfirmOrder"]""')" />
+        <input class="btn btn-primary" type="submit" value="@Localizer["CompleteOrder"]" onclick="return confirm('Please confirm the order?')" />
+        @*<input class="btn btn-primary" type="submit" value="@Localizer["CompleteOrder"]" onclick="return confirm('"@Localizer["ConfirmOrder"]"')" />*@
         @* 
         Balise input avec @Localizer dans l'attribut onclick qui ne fonctionne pas (pb de string format) : onclick="return confirm('.@Localizer["ConfirmOrder"].')"
             <input class="btn btn-primary" type="submit" value="@Localizer["CompleteOrder"]" onclick="return confirm(@Localizer["ConfirmOrder"])" />
