@@ -59,7 +59,6 @@ namespace P2FixAnAppDotNetCode.Models.Services
             // TODO implement the method.
             IEnumerable<Product> products = _productRepository.GetAllProducts();
             return products.Where(p => p.Id == id).First();
-            //return product;
         }
 
         /// <summary>
